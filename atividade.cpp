@@ -8,10 +8,11 @@ using std::string;
 int pow(int, int);
 int fatorial(int);
 float progressao(float, float, int);
+int fibonacci(int);
 
 int main()
 {
-    int iBase, iExpoente, iFatorial, iQtdTermos;
+    int iBase, iExpoente, iFatorial, iQtdTermos, iFibonacci;
     float fPrimeiroTermo, fRazao;
     
     cout << "Insira a base: ";
@@ -48,6 +49,15 @@ int main()
     
     cout << "Soma dos termos: " << fResultado3 << endl;
     
+    cout << "===============================================" << endl;
+
+    cout << "Insira o número (para o fibonacci): ";
+    cin >> iFibonacci;
+
+    int iResultado4 = fibonacci(iFibonacci);
+
+    cout << "Resultado do fibonacci: " << iResultado4 << endl;
+
     cout << "===============================================" << endl;
 
     return 0;
@@ -93,4 +103,24 @@ float progressao(float fPrimeiroTermo, float fRazao, int iQtdTermos)
     }
     
     return fSoma;
+}
+
+
+int fibonacci(int iNum)
+{
+
+    if (iNum == 0) return 0;
+
+    if (iNum == 1) return 1;
+
+    int iFibo_n1 = 0; int iFibo_n2 = 1;
+
+    for (int i = 1; i < iNum; i++) {
+        int iTmp = iFibo_n1;
+        iFibo_n1 = iFibo_n2;
+        iFibo_n2 += iTmp;
+    }
+
+    return iFibo_n2;
+
 }
