@@ -7,10 +7,12 @@ using std::string;
 
 int pow(int, int);
 int fatorial(int);
+float progressao(float, float, int);
 
 int main()
 {
-    int iBase, iExpoente, iFatorial;
+    int iBase, iExpoente, iFatorial, iQtdTermos;
+    float fPrimeiroTermo, fRazao;
     
     cout << "Insira a base: ";
     cin >> iBase;
@@ -33,8 +35,24 @@ int main()
 
     cout << "===============================================" << endl;
 
+    cout << "Insira o primeiro termo da P.A.: ";
+    cin >> fPrimeiroTermo;
+    
+    cout << "Insira a razão da P.A.: ";
+    cin >> fRazao;
+    
+    cout << "Insira a quantidade de termos: ";
+    cin >> iQtdTermos;
+
+    float fResultado3 = progressao(fPrimeiroTermo, fRazao, iQtdTermos);
+    
+    cout << "Soma dos termos: " << fResultado3 << endl;
+    
+    cout << "===============================================" << endl;
+
     return 0;
 }
+
 
 int pow(int iBase, int iExpoente)
 {
@@ -51,7 +69,6 @@ int pow(int iBase, int iExpoente)
 
 int fatorial(int iNum)
 {
-
     if (iNum == 0) return 1;
 
     int iFatorial = 1;
@@ -62,5 +79,18 @@ int fatorial(int iNum)
     }
 
     return iFatorial;
+}
 
+
+float progressao(float fPrimeiroTermo, float fRazao, int iQtdTermos)
+{
+    float fTermoAtual = 0, fSoma = 0;
+    
+    for(int i = 1; i <= iQtdTermos; i++)
+    {
+        fTermoAtual += fRazao;
+        fSoma += fTermoAtual;
+    }
+    
+    return fSoma;
 }
