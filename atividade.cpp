@@ -5,11 +5,11 @@ using std::cout;
 using std::endl;
 using std::string;
 
-int pow(int, int);
-int fatorial(int);
-float progressao(float, float, int);
-int fibonacci(int);
-int numDigitos(int);
+int pow(int&, int&);
+int fatorial(int&);
+float progressao(float&, float&, int&);
+int fibonacci(int&);
+int numDigitos(int&);
 
 int main()
 {
@@ -72,7 +72,7 @@ int main()
 }
 
 
-int pow(int iBase, int iExpoente)
+int pow(int& iBase, int& iExpoente)
 {
     int iResultado = 1;
     
@@ -85,7 +85,7 @@ int pow(int iBase, int iExpoente)
 }
 
 
-int fatorial(int iNum)
+int fatorial(int& iNum)
 {
     if (iNum == 0) return 1;
 
@@ -100,7 +100,7 @@ int fatorial(int iNum)
 }
 
 
-float progressao(float fPrimeiroTermo, float fRazao, int iQtdTermos)
+float progressao(float& fPrimeiroTermo, float& fRazao, int& iQtdTermos)
 {
     float fTermoAtual = 0, fSoma = 0;
     
@@ -114,7 +114,7 @@ float progressao(float fPrimeiroTermo, float fRazao, int iQtdTermos)
 }
 
 
-int fibonacci(int iNum)
+int fibonacci(int& iNum)
 {
 
     if (iNum == 0) return 0;
@@ -134,7 +134,7 @@ int fibonacci(int iNum)
 }
 
 
-int numDigitos(int iNumero)
+int numDigitos(int& iNumero)
 {
     int iOrdem, iQtdDigitos = 1;
     
