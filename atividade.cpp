@@ -9,10 +9,11 @@ int pow(int, int);
 int fatorial(int);
 float progressao(float, float, int);
 int fibonacci(int);
+int numDigitos(int);
 
 int main()
 {
-    int iBase, iExpoente, iFatorial, iQtdTermos, iFibonacci;
+    int iBase, iExpoente, iFatorial, iQtdTermos, iFibonacci, iNumero;
     float fPrimeiroTermo, fRazao;
     
     cout << "Insira a base: ";
@@ -59,6 +60,13 @@ int main()
     cout << "Resultado do fibonacci: " << iResultado4 << endl;
 
     cout << "===============================================" << endl;
+
+    cout << "Insira o número: ";
+    cin >> iNumero;
+    
+    int iResultado5 = numDigitos(iNumero);
+        
+    cout << "Quantidade de dígitos: " << iResultado5 << endl;
 
     return 0;
 }
@@ -123,4 +131,32 @@ int fibonacci(int iNum)
 
     return iFibo_n2;
 
+}
+
+
+int numDigitos(int iNumero)
+{
+    int iOrdem, iQtdDigitos = 1;
+    
+    if(iNumero < 0)
+    {
+        iOrdem = -10;
+        
+        while(iOrdem >= iNumero)
+        {
+            iOrdem *= 10;
+            iQtdDigitos++;
+        }
+    }
+    else
+    {
+        iOrdem = 10;
+        while(iOrdem <= iNumero)
+        {
+            iOrdem *= 10;
+            iQtdDigitos++;
+        }
+    }
+    
+    return iQtdDigitos;
 }
